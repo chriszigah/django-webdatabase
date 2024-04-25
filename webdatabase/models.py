@@ -11,6 +11,7 @@ class Record(models.Model):
     phone = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
+    image_url = models.CharField(default=None, max_length=150)
 
     def __str__(self):
         return self.first_name + "   " + self.last_name

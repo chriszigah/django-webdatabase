@@ -1,6 +1,37 @@
-{% extends 'webdatabase/base.html' %} 
-{% block content %}
-<body> 
-  <h1>This is a dashboard</h1>
+{% extends 'webdatabase/base.html' %} {% block content %}
+<body>
+  <h5>Welcome to the Dashboard, {{user}}!</h5>
+  <hr />
+  <a class="btn btn-outline btn-primary btn-sm" href="{% url 'create-record' %}"
+    >Create a New Record</a
+  >
+  <br/>
+ <br/>
+  <table class="table table-light table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">City</th>
+        <th scope="col">Joined Date</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if records %} {% for record in records %}
+      <tr>
+        <td>{{record.id}}</td>
+        <td>{{record.first_name}} {{record.last_name}}</td>
+        <td>{{record.email}}</td>
+        <td>{{record.phone}}</td>
+        <td>{{record.city}}</td>
+        <td>{{record.creation_date}}</td>
+        <td><a href="{% url 'record' record.id %}">View Record</a></td>
+      </tr>
+      {% endfor %} {% endif %}
+    </tbody>
+  </table>
 </body>
 {% endblock %}
