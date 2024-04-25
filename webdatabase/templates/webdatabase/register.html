@@ -9,7 +9,11 @@
   </div>
     <br />
     <form method="POST" autocomplete="off">
-      {% csrf_token%} {{form|crispy}}
+      {% csrf_token%} 
+      
+      {{form|crispy}}
+
+      
       <br />
       <button type="submit" class="btn btn-primary w-100 btn-block p-2">
         <i class="fa fa-check"></i> &nbsp;

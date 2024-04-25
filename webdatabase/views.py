@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 
 from . models import Record
 
+from django.contrib import messages
+
 def home(request):
     return render(request, 'webdatabase/index.html')
 
@@ -24,6 +26,9 @@ def register(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+
+            messages.success(request, "Account Successfully Created!")
+
             return redirect('login')
     
     context = {'form':form}
@@ -74,6 +79,9 @@ def create_record(request):
         form = CreateRecordForm(request.POST)
         if form.is_valid():
             form.save()
+
+            messages.success(request, "Record Successfully Created!")
+
             return redirect('dashboard')
     
     context = {'form':form}
@@ -92,6 +100,9 @@ def update_record(request, id):
         form = UpdateRecordForm(request.POST, instance=record)
         if form.is_valid():
             form.save()
+
+            messages.success(request, "Record was updated successfully.")
+
             return redirect('dashboard')
     
     context = {'form': form}
@@ -114,10 +125,15 @@ def delete_record(request, id):
     record = Record.objects.get(id=id)
     record.delete()
 
+    messages.success(request, "Record deleted successfully!")
+
     return redirect('dashboard')
 
 
 # User Logout
 def logout_user(request):
     auth.logout(request)
+
+    messages.success(request, "Logout Successfully!")
+
     return redirect("login")
