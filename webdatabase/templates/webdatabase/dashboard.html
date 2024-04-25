@@ -3,7 +3,7 @@
   <h5>Welcome to the Dashboard, {{user}}!</h5>
   <hr />
   <a class="btn btn-outline btn-primary btn-sm" href="{% url 'create-record' %}"
-    >Create a New Record</a
+    > <i class="fa fa-address-book"> &nbsp;</i>Create a New Record</a
   >
   <br/>
  <br/>
@@ -28,7 +28,7 @@
         <td>{{record.phone}}</td>
         <td>{{record.city}}</td>
         <td>{{record.creation_date}}</td>
-        <td><a href="{% url 'record' record.id %}">View Record</a></td>
+        <td><a class="btn btn-success btn-sm" href="{% url 'record' record.id %}"><i class="fa fa-eye"></i></a></td>
       </tr>
       {% endfor %} {% endif %}
     </tbody>

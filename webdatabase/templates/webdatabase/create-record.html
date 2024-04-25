@@ -14,9 +14,15 @@
       <form method="POST" autocomplete="off">
         {% csrf_token%} {{form|crispy}}
         <br />
-        <button type="submit" class="btn btn-primary w-100 btn-block p-2">
+        <button type="submit" class="btn btn-primary btn-block p-2">
+          
           Create Record
+          <i class="fa fa-check"></i> &nbsp;
         </button>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-block p-2">
+          Return
+          <i class="fa fa-arrow-left"></i> &nbsp;
+        </a>
         <br />
       </form>
     </div>

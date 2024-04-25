@@ -18,11 +18,11 @@
       <ul class="navbar-nav mr-auto">
         &nbsp; &nbsp; &nbsp; {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}">Dashbaoard</a>
+          <a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-home"></i>&nbsp;Dashbaoard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}"
-            ><i class="fa fa-sign-out"></i>Logout</a
+            ><i class="fa fa-sign-out"></i>&nbsp;Logout</a
           >
         </li>
         {% else %}
